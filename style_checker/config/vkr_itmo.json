@@ -1,0 +1,261 @@
+{
+  "_comment": "Набор правил для проверки ВКР по требованиям ИТМО. Версия 1.0.",
+
+  "enabled_checkers": ["structure", "terminology", "formatting", "gost_page"],
+
+  "structure": {
+    "require_headings": true,
+    "check_heading_hierarchy": true,
+    "check_top_level_numbering": false,
+    "min_paragraphs": 5,
+    "required_sections": [
+      {
+        "pattern": "содержание|оглавление",
+        "label": "Содержание",
+        "severity": "error"
+      },
+      {
+        "pattern": "введение",
+        "label": "Введение",
+        "severity": "error"
+      },
+      {
+        "pattern": "заключение",
+        "label": "Заключение",
+        "severity": "error"
+      },
+      {
+        "pattern": "список.*источник|список.*литерат|библиограф",
+        "label": "Список источников",
+        "severity": "error"
+      },
+      {
+        "pattern": "список.*сокращ",
+        "label": "Список сокращений",
+        "severity": "warning"
+      },
+      {
+        "pattern": "термин.*определени|определени.*термин",
+        "label": "Термины и определения",
+        "severity": "warning"
+      }
+    ]
+  },
+
+  "terminology": {
+    "forbidden_terms": [
+      {
+        "term": "юзер",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «пользователь»",
+        "severity": "error"
+      },
+      {
+        "term": "баг",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «ошибка», «дефект» или «неисправность»",
+        "severity": "error"
+      },
+      {
+        "term": "фича",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «функция», «возможность» или «функциональность»",
+        "severity": "error"
+      },
+      {
+        "term": "пофиксить",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «исправить»",
+        "severity": "error"
+      },
+      {
+        "term": "задеплоить",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «развернуть», «опубликовать» или «выполнить развёртывание»",
+        "severity": "error"
+      },
+      {
+        "term": "краш",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «сбой», «аварийное завершение» или «падение системы»",
+        "severity": "error"
+      },
+      {
+        "term": "хакнуть",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «взломать» или «осуществить несанкционированный доступ»",
+        "severity": "error"
+      },
+      {
+        "term": "кликнуть",
+        "reason": "Разговорный стиль — не характерен для академического текста",
+        "suggestion": "Используйте «нажать» или «выбрать»",
+        "severity": "warning"
+      },
+      {
+        "term": "тыкнуть",
+        "reason": "Разговорный стиль — не характерен для академического текста",
+        "suggestion": "Используйте «нажать» или «выбрать»",
+        "severity": "warning"
+      },
+      {
+        "term": "пушить",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «отправлять» или «публиковать изменения»",
+        "severity": "warning"
+      },
+      {
+        "term": "мержить",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «объединять» или «выполнять слияние»",
+        "severity": "warning"
+      },
+      {
+        "term": "лагать",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «работать с задержкой» или «тормозить»",
+        "severity": "warning"
+      },
+      {
+        "term": "глючить",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «работать некорректно» или «давать сбои»",
+        "severity": "warning"
+      },
+      {
+        "term": "апгрейд",
+        "reason": "Жаргонизм — недопустим в академическом тексте",
+        "suggestion": "Используйте «обновление» или «модернизация»",
+        "severity": "warning"
+      },
+      {
+        "term": "бэкенд",
+        "reason": "Допустима только английская форма в техническом контексте",
+        "suggestion": "Используйте «backend» (латиницей) или «серверная часть»",
+        "severity": "warning"
+      },
+      {
+        "term": "фронтенд",
+        "reason": "Допустима только английская форма в техническом контексте",
+        "suggestion": "Используйте «frontend» (латиницей) или «клиентская часть»",
+        "severity": "warning"
+      }
+    ],
+
+    "required_terms": [],
+
+    "preferred_replacements": [
+      {
+        "avoid": "программное обеспечение и",
+        "prefer": "программное обеспечение (ПО)",
+        "severity": "info"
+      },
+      {
+        "avoid": "в данной работе",
+        "prefer": "в настоящей работе",
+        "severity": "info"
+      },
+      {
+        "avoid": "данный проект",
+        "prefer": "разрабатываемая система / настоящий проект",
+        "severity": "info"
+      }
+    ]
+  },
+
+  "formatting": {
+    "no_double_spaces": true,
+    "no_period_in_headings": true,
+    "check_sentence_capitalization": true,
+    "warn_latin_in_russian": true,
+    "max_paragraph_length": 200,
+    "min_paragraph_length": null,
+    "allowed_latin_terms": [
+      "API", "REST", "HTTP", "HTTPS", "JSON", "XML", "HTML", "CSS",
+      "SQL", "NoSQL", "URL", "URI", "IP", "TCP", "UDP",
+      "UI", "UX", "SPA", "MVC", "MVP", "MVVM",
+      "PDF", "DOCX", "XLSX", "CSV",
+      "ORM", "JWT", "OAuth",
+      "Python", "JavaScript", "TypeScript", "React", "Vue", "Angular",
+      "FastAPI", "Django", "Flask", "Node", "Docker", "Git",
+      "GitHub", "GitLab", "Linux", "Windows", "macOS",
+      "CRUD", "DevOps", "CI", "CD",
+      "NLP", "ML", "AI", "GPT",
+      "ГОСТ", "ИТ"
+    ],
+    "forbidden_patterns": [
+      {
+        "pattern": "\\.{3,}(?!\\.)",
+        "message": "Многоточие из трёх точек вместо символа «…»",
+        "suggestion": "Используйте символ многоточия «…» (Unicode U+2026)",
+        "severity": "info",
+        "apply_to": "body"
+      },
+      {
+        "pattern": "!!+",
+        "message": "Несколько восклицательных знаков подряд — недопустимо в академическом тексте",
+        "suggestion": "Используйте один восклицательный знак или перефразируйте предложение",
+        "severity": "warning",
+        "apply_to": "all"
+      },
+      {
+        "pattern": "\\?\\?+",
+        "message": "Несколько вопросительных знаков подряд",
+        "suggestion": "Используйте один вопросительный знак",
+        "severity": "warning",
+        "apply_to": "all"
+      },
+      {
+        "pattern": "т\\.к\\.",
+        "message": "Аббревиатура «т.к.» нежелательна в академическом тексте",
+        "suggestion": "Используйте «так как» или «поскольку»",
+        "severity": "info",
+        "apply_to": "body"
+      },
+      {
+        "pattern": "т\\.е\\.",
+        "message": "Аббревиатура «т.е.» нежелательна в основном тексте",
+        "suggestion": "Используйте «то есть»",
+        "severity": "info",
+        "apply_to": "body"
+      },
+      {
+        "pattern": "и\\s+т\\.\\s*д\\.",
+        "message": "Аббревиатура «и т.д.» нежелательна в академическом тексте",
+        "suggestion": "Перечислите все элементы явно или используйте «и другие»",
+        "severity": "info",
+        "apply_to": "body"
+      },
+      {
+        "pattern": "и\\s+т\\.\\s*п\\.",
+        "message": "Аббревиатура «и т.п.» нежелательна в академическом тексте",
+        "suggestion": "Перечислите все элементы явно или используйте «и подобные»",
+        "severity": "info",
+        "apply_to": "body"
+      },
+      {
+        "pattern": "\\bнр\\b|\\(нр\\)",
+        "message": "Некорректное сокращение «нр» вместо «напр.»",
+        "suggestion": "Используйте «например» или сокращение «напр.»",
+        "severity": "warning",
+        "apply_to": "body"
+      }
+    ]
+  },
+
+  "gost_page": {
+    "margin_left_mm": 30.0,
+    "margin_right_mm": 15.0,
+    "margin_top_mm": 20.0,
+    "margin_bottom_mm": 20.0,
+    "margin_tolerance_mm": 1.5,
+    "font_name": "Times New Roman",
+    "allowed_fonts": ["Times New Roman"],
+    "font_size_pt": 14.0,
+    "font_size_tolerance_pt": 0.5,
+    "line_spacing": 1.5,
+    "line_spacing_tolerance": 0.05,
+    "first_line_indent_mm": 12.5,
+    "first_line_indent_tolerance_mm": 1.5
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "_comment": "Конфиг правил проверки. Редактируется администратором через UI или напрямую.",
+  "enabled_checkers": [
+    "structure",
+    "terminology",
+    "formatting",
+    "gost_page"
+  ],
+  "structure": {
+    "require_headings": true,
+    "check_heading_hierarchy": true,
+    "check_top_level_numbering": false,
+    "min_paragraphs": 3,
+    "required_sections": [
+      {
+        "pattern": "введение|introduction",
+        "label": "Введение",
+        "severity": "error"
+      },
+      {
+        "pattern": "заключение|conclusion",
+        "label": "Заключение",
+        "severity": "error"
+      },
+      {
+        "pattern": "список.*источник|references|библиограф",
+        "label": "Список источников",
+        "severity": "warning"
+      }
+    ]
+  },
+  "terminology": {
+    "forbidden_terms": [
+      {
+        "term": "юзер",
+        "reason": "Жаргонизм",
+        "suggestion": "Используйте «пользователь»",
+        "severity": "error"
+      },
+      {
+        "term": "кликнуть",
+        "reason": "Разговорный стиль",
+        "suggestion": "Используйте «нажать» или «выбрать»",
+        "severity": "warning"
+      },
+      {
+        "term": "тыкнуть",
+        "reason": "Разговорный стиль",
+        "suggestion": "Используйте «нажать» или «выбрать»",
+        "severity": "warning"
+      },
+      {
+        "term": "баг",
+        "reason": "Жаргонизм",
+        "suggestion": "Используйте «ошибка» или «дефект»",
+        "severity": "warning"
+      },
+      {
+        "term": "фича",
+        "reason": "Жаргонизм",
+        "suggestion": "Используйте «функция» или «возможность»",
+        "severity": "warning"
+      }
+    ],
+    "required_terms": [],
+    "preferred_replacements": [
+      {
+        "avoid": "программное обеспечение и",
+        "prefer": "программное обеспечение (ПО)",
+        "severity": "info"
+      }
+    ]
+  },
+  "formatting": {
+    "no_double_spaces": true,
+    "no_period_in_headings": true,
+    "check_sentence_capitalization": true,
+    "warn_latin_in_russian": false,
+    "max_paragraph_length": 150,
+    "min_paragraph_length": null,
+    "allowed_latin_terms": [
+      "API",
+      "HTTP",
+      "HTTPS",
+      "SQL",
+      "JSON",
+      "XML",
+      "URL",
+      "UI",
+      "UX",
+      "PDF",
+      "DOCX",
+      "REST",
+      "MVC"
+    ],
+    "forbidden_patterns": [
+      {
+        "pattern": "\\.{3,}(?!\\.)",
+        "message": "Использование многоточия из трёх и более точек вместо символа «…»",
+        "suggestion": "Используйте символ многоточия «…» (Unicode U+2026)",
+        "severity": "info",
+        "apply_to": "body"
+      },
+      {
+        "pattern": "!!+",
+        "message": "Несколько восклицательных знаков подряд",
+        "suggestion": "Используйте один восклицательный знак",
+        "severity": "warning",
+        "apply_to": "all"
+      }
+    ]
+  },
+  "gost_page": {
+    "margin_left_mm": 30.0,
+    "margin_right_mm": 10.0,
+    "margin_top_mm": 20.0,
+    "margin_bottom_mm": 20.0,
+    "margin_tolerance_mm": 1.5,
+    "font_name": "Times New Roman",
+    "allowed_fonts": [
+      "Times New Roman",
+      "Arial"
+    ],
+    "font_size_pt": 14.0,
+    "font_size_tolerance_pt": 0.5,
+    "line_spacing": 1.5,
+    "line_spacing_tolerance": 0.05,
+    "first_line_indent_mm": 12.5,
+    "first_line_indent_tolerance_mm": 1.5
+  }
+}

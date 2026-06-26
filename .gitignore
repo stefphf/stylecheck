@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+checker.db
+frontend-src/node_modules/
+frontend-src/dist/
+frontend-src/.vite/
+*.rar
+*.zip
